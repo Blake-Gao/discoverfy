@@ -45,8 +45,17 @@ public class Main {
         Page<SimpleAlbum> simpleAlbums = ArtistMethods.getAlbumsByArtist(clientInfo, userInput);
         List<SimpleAlbum> simpleAlbumsList = simpleAlbums.getItems();
 
-        for (SimpleAlbum album : simpleAlbumsList){
-            System.out.println(album.getName() + " " + album.getId());
+        /** album tracks test */
+        String albumId = simpleAlbumsList.get(0).getId();
+        String albumName = simpleAlbumsList.get(0).getName();
+        System.out.println("Token: " + clientInfo.getAccessToken());
+        System.out.println("Album Id: " + albumId);
+        System.out.println("Album name: " + albumName);
+        Page<SimpleTrack> simpleTracks = ArtistMethods.getTracksForAlbum(clientInfo, albumName, userInput.getArtist().getName());
+        List<SimpleTrack> simpleTracksList = simpleTracks.getItems();
+
+        for(SimpleTrack track : simpleTracksList){
+            System.out.println("Track: " + track.getName());
         }
     }
 

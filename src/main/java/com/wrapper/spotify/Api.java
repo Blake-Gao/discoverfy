@@ -2,10 +2,7 @@ package com.wrapper.spotify;
 
 import com.wrapper.spotify.UtilProtos.Url.Scheme;
 import com.wrapper.spotify.methods.*;
-import com.wrapper.spotify.methods.authentication.AuthorizationCodeGrantRequest;
-import com.wrapper.spotify.methods.authentication.AuthorizationURLRequest;
-import com.wrapper.spotify.methods.authentication.ClientCredentialsGrantRequest;
-import com.wrapper.spotify.methods.authentication.RefreshAccessTokenRequest;
+import com.wrapper.spotify.methods.authentication.*;
 
 import net.sf.json.JSONArray;
 
@@ -149,6 +146,14 @@ public class Api {
     TracksRequest.Builder builder = TracksRequest.builder();
     setDefaults(builder);
     builder.id(ids);
+    return builder;
+  }
+
+
+  public TracksForAlbumRequest.Builder getTracksForAlbum(String id){
+    TracksForAlbumRequest.Builder builder = TracksForAlbumRequest.builder();
+    setDefaults(builder);
+    builder.forAlbum(id);
     return builder;
   }
 

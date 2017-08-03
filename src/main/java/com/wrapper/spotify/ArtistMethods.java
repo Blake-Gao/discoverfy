@@ -2,6 +2,7 @@ package com.wrapper.spotify;
 
 import com.wrapper.spotify.methods.AlbumsForArtistRequest;
 import com.wrapper.spotify.methods.RelatedArtistsRequest;
+import com.wrapper.spotify.methods.TracksForAlbumRequest;
 import com.wrapper.spotify.models.*;
 
 import java.util.List;
@@ -53,6 +54,21 @@ public class ArtistMethods {
         }
         throw new IllegalArgumentException("No albums found");
     }
+
+    public static Page<SimpleTrack> getTracksForAlbum (ClientInfo clientInfo, String albumId, String artist){
+        try{
+            final TracksForAlbumRequest tracksForAlbumRequest = clientInfo.getApi()
+                    .getTracksForAlbum(albumId)
+                    .accessToken(clientInfo.getAccessToken())
+                    .artist(artist)
+                    .build();
+            return tracksForAlbumRequest.get();
+        } catch (Exception e){
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+        throw new IllegalArgumentException("No album tracks");
+    }
+
 
 
 }
