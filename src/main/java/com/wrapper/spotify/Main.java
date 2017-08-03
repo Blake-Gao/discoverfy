@@ -50,8 +50,8 @@ public class Main {
         String albumName = simpleAlbumsList.get(0).getName();
         System.out.println("Token: " + clientInfo.getAccessToken());
         System.out.println("Album Id: " + albumId);
-        System.out.println("Album name: " + albumName);
-        Page<SimpleTrack> simpleTracks = ArtistMethods.getTracksForAlbum(clientInfo, albumName, userInput.getArtist().getName());
+        System.out.println("Album name: " + albumName + "\n");
+        Page<SimpleTrack> simpleTracks = ArtistMethods.getTracksForAlbum(clientInfo, albumId);
         List<SimpleTrack> simpleTracksList = simpleTracks.getItems();
 
         for(SimpleTrack track : simpleTracksList){

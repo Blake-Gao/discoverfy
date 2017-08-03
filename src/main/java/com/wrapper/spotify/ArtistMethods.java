@@ -1,5 +1,6 @@
 package com.wrapper.spotify;
 
+import com.wrapper.spotify.methods.AlbumRequest;
 import com.wrapper.spotify.methods.AlbumsForArtistRequest;
 import com.wrapper.spotify.methods.RelatedArtistsRequest;
 import com.wrapper.spotify.methods.TracksForAlbumRequest;
@@ -55,14 +56,13 @@ public class ArtistMethods {
         throw new IllegalArgumentException("No albums found");
     }
 
-    public static Page<SimpleTrack> getTracksForAlbum (ClientInfo clientInfo, String albumId, String artist){
+    public static Page<SimpleTrack> getTracksForAlbum (ClientInfo clientInfo, String albumId){
         try{
-            final TracksForAlbumRequest tracksForAlbumRequest = clientInfo.getApi()
-                    .getTracksForAlbum(albumId)
+            final AlbumRequest albumRequest = clientInfo.getApi()
+                    .getAlbum(albumId)
                     .accessToken(clientInfo.getAccessToken())
-                    .artist(artist)
                     .build();
-            return tracksForAlbumRequest.get();
+            return albumRequest.get().getTracks();
         } catch (Exception e){
             System.out.println("Something went wrong: " + e.getMessage());
         }

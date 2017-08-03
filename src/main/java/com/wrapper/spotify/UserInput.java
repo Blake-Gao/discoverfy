@@ -1,17 +1,11 @@
 package com.wrapper.spotify;
 
 import com.wrapper.spotify.methods.ArtistSearchRequest;
-import com.wrapper.spotify.methods.RelatedArtistsRequest;
 import com.wrapper.spotify.models.Artist;
-import com.wrapper.spotify.models.ClientInfo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.List;
 
 /**
  * Created by MyComputer on 7/16/2017.

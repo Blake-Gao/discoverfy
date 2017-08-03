@@ -1,4 +1,4 @@
-package com.wrapper.spotify.models;
+package com.wrapper.spotify;
 
 import com.microsoft.alm.oauth2.useragent.AuthorizationException;
 import com.microsoft.alm.oauth2.useragent.AuthorizationResponse;

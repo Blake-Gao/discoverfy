@@ -51,6 +51,10 @@ public class AlbumRequest extends AbstractRequest {
       return path(String.format("/v1/albums/%s", id));
     }
 
+    public Builder accessToken(String accessToken) {
+      return header("Authorization", "Bearer " + accessToken);
+    }
+
     public AlbumRequest build() {
       return new AlbumRequest(this);
     }
