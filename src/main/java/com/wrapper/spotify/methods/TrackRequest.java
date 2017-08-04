@@ -49,6 +49,10 @@ public class TrackRequest extends AbstractRequest {
       return path(String.format("/v1/tracks/%s", id));
     }
 
+    public Builder accessToken(String accessToken) {
+      return header("Authorization", "Bearer " + accessToken);
+    }
+
     public TrackRequest build() {
       return new TrackRequest(this);
     }
